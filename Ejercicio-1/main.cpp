@@ -5,8 +5,10 @@ using namespace std;
 
 int main()
 {
-    string a;
-    a="AbC";
+    string a,x;
+    a="AbCd";
+    x=binary(a);
     cout << binary(a) << endl;
+    cout<<metodo_1(x,4)<<endl;
     return 0;
 }
