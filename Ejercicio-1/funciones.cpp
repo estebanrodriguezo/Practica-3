@@ -43,8 +43,8 @@ string binary(string str){
 string metodo_1(string cad,int semilla){
 
     string new_cad="";
-    new_cad=cad;
-    for (int cont=0 ;cont<semilla; cont++){
+    new_cad=cad;//se copia la cadena
+    for (int cont=0 ;cont<semilla; cont++){//este for invierte el primer bloque
         if(cad[cont]=='0'){
              new_cad[cont]='1';
             }
@@ -53,11 +53,11 @@ string metodo_1(string cad,int semilla){
             }
         }
 
-    int /*bloque=((cad.length())/semilla),*/ tam_cad=cad.length(),i=0,n=1;
+    int tam_cad=cad.length(),i=0,n=semilla,v=2,h=semilla; //calculamos tamaño de la longitud de la cadena e inicializamos unas variables
 
-    for(int j=0;j<tam_cad;j+=semilla){
+    for(int j=0;j<=tam_cad;j+=semilla){// este for cuenta los ceros y unos de cada bloque
         int c_ceros=0, c_unos=0;
-        for( n, i; i<(semilla*n);i++,n+=semilla){
+        for(  i; i<n;i++){
             if (cad[i]=='0'){
                 c_ceros+=1;
             }
@@ -66,8 +66,10 @@ string metodo_1(string cad,int semilla){
             }
 
         }
+        n=semilla*v;//variable que se para al final de cada bloque (al que corresponda )
+        v++;
         if(c_ceros==c_unos){
-            for (int cont=0 ;cont<j; cont++){
+            for (int cont=h ;cont<(h+semilla); cont++){
                 if(cad[cont]=='0'){
                      new_cad[cont]='1';
                     }
@@ -78,7 +80,7 @@ string metodo_1(string cad,int semilla){
         }
 
         else if (c_ceros>c_unos){
-            for (int cont=1 ;cont<j; cont+=2){
+            for (int cont=h+1 ;cont<(h+semilla); cont+=2){
                 if(cad[cont]=='0'){
                       new_cad[cont]='1';
                     }
@@ -88,7 +90,7 @@ string metodo_1(string cad,int semilla){
                 }
         }
         else if (c_ceros<c_unos){
-            for (int cont=1 ;cont<j; cont+=3){
+            for (int cont=h+2 ;cont<(h+semilla); cont+=3){
                 if(cad[cont]=='0'){
                       new_cad[cont]='1';
                     }
@@ -97,6 +99,7 @@ string metodo_1(string cad,int semilla){
                     }
                 }
         }
+        h+=semilla;
 
 
 
