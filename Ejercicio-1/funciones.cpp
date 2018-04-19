@@ -110,3 +110,37 @@ return new_cad;
 }
 
 
+string metodo_2(string cad,int semilla){
+
+    string new_cad=cad;
+    int tam_cad=cad.length(),n=(semilla-1),i=1,h=semilla;
+
+    for(int j=0;j<=tam_cad;j+=semilla){
+        new_cad[j]=cad[n];
+        n+=semilla;
+        }
+
+
+    }
+
+
+
+
+return new_cad;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
