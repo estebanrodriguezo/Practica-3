@@ -113,18 +113,38 @@ return new_cad;
 string metodo_2(string cad,int semilla){
 
     string new_cad=cad;
-    int tam_cad=cad.length(),n=(semilla-1),i=1,h=semilla;
 
-    for(int j=0;j<=tam_cad;j+=semilla){
+    int tam_cad=cad.length(),n=(semilla-1),i=1,v=0,h=semilla,m=1,bloque=(tam_cad/semilla),j=0;
+
+    for( j;j<=tam_cad;j+=semilla){
+
+//        if(tam_cad%bloque==0){
+
         new_cad[j]=cad[n];
         n+=semilla;
-        }
 
+        for(v;v<(h*=m);v++){
+            new_cad[i]=cad[i-1];
+            v=v;
+            i++;
+        }
+        m++;
 
     }
 
+    if(tam_cad%semilla!=0){
+    j-=semilla;
+    int z=tam_cad-j,q=1,a=1;
+    for(j;j<tam_cad;j+=z){
+        new_cad[j]=cad[tam_cad-1];
 
-
+        for(int y=0;y<(z*a);y++){
+           new_cad[q]=cad[q-1];
+           q++;
+        }
+        a++;
+    }
+}
 
 return new_cad;
 }
